@@ -1,12 +1,26 @@
-$(document).ready(function(){
-    $.get('value')
-    $('increase').click(function(){
-        $.get('/increment')
-        console.log(data);
-        $('#count').html(data)
+$(document).ready(function () {
+    $.get('/value', function (data) {
+      $('#count').html(data);
     })
-    $('decrease').click(function(){
-        $.get('/decrement')
+  
+    $('#increase').click(function () {
+      $.get('/increment', function (data) {
         console.log(data);
-    })
-});
+        $('#count').html(data);
+      });
+    });
+  
+    $('#substract').click(function () {
+      $.get('/decrease', function (data) {
+        console.log(data);
+        $('#count').html(data);
+      });
+    });
+  
+    $('#reset').click(function () {
+      $.get('/reset', function (data) {
+        console.log(data);
+        $('#count').html(data);
+      });
+    });
+  });
